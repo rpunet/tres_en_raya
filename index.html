@@ -11,8 +11,8 @@
 	<br>
 	<div id="start">
 		<button class="button" onclick="dos_jugadores()">2 jugadores</button>
-		<button class="button" onclick="ai_random()" >IA random</button>
-		<button class="button" onclick="ai_empate()" >IA empate</button>
+		<button class="button" onclick="ai_random()" >IA básica</button>
+		<button class="button" onclick="ai_empate()" >IA avanzada</button>
 	</div>
 	<div class="container" id="juego">
 		<div class="zonadejuego">
@@ -32,6 +32,7 @@
 			<h2>¡Empate!</h2>
 		</div>
 	</div>
+	<p id=turno style="visibility: hidden;">Jugador 1</p>
 	<a href="javascript:location.reload()" id= "reinicio" style="visibility: hidden;">
 		<button class="button" style="margin: 40px;">Reiniciar</button>
 	</a>

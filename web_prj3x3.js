@@ -8,6 +8,7 @@ var	ai = 0;
 
 function	dos_jugadores()
 {
+	document.getElementById("turno").style="visibility:visible";
 	document.getElementById("juego").style="visibility:visible";
 	document.getElementById("reinicio").style="visibility:visible";
 	document.getElementById("start").style="visibility:hidden";
@@ -36,6 +37,7 @@ function numEspacios()
 
 function dibujar()
 {
+	document.getElementById("turno").innerHTML="";
 	for(i=0; i<9; i++)
 	{
 		if (mapa[i])
@@ -46,11 +48,13 @@ function dibujar()
 			{
 				document.getElementById("block_" + i).style="color: #e78268; cursor: default";
 				document.getElementById("block_" + i).innerHTML="X";
+				document.getElementById("turno").innerHTML="Jugador 2";
 			}
 			else
 			{
 				document.getElementById("block_" + i).style="color: #8bb4e4; cursor: default";
 				document.getElementById("block_" + i).innerHTML="O";
+				document.getElementById("turno").innerHTML="Jugador 1";
 			}
 		}
 	}
