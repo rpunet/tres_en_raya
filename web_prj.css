@@ -1,0 +1,85 @@
+* { 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body {
+	margin-top:35px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+	color: rgb(75, 75, 75);
+}
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	visibility:hidden;
+}
+
+.button {
+	height:35px;
+	width:100px;
+}
+
+.zonadejuego {
+	display: grid;
+	width: 300px;
+	height: 300px;
+	grid-template-columns: auto auto auto;
+}
+
+.middle {
+	position: absolute;
+	width: 309px;
+	height: 309px;
+	background: rgba(53, 53, 53, 0.829);
+	visibility: hidden;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	color: rgb(255, 160, 157);
+} 
+
+.block {
+	display: flex;
+	width: 100px;
+	height: 100px;
+	align-items: center;
+	justify-content: center;
+	font-size: 4rem;
+	font-weight: bold;
+	border: 3px solid rgb(58, 58, 58);
+	cursor: pointer;
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#block_0,
+#block_1,
+#block_2 {
+	border-top: none;
+}
+#block_0,
+#block_3,
+#block_6 {
+	border-left: none;
+}
+#block_6,
+#block_7,
+#block_8 {
+	border-bottom: none;
+}
+#block_2,
+#block_5,
+#block_8 {
+	border-right: none;
+}
