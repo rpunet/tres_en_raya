@@ -40,17 +40,17 @@ function dibujar()
 	{
 		if (mapa[i])
 		{
-			document.getElementById("block_"+i).onmouseout="";
-			document.getElementById("block_"+i).onmouseover="";
+			document.getElementById("block_" + i).onmouseout="";
+			document.getElementById("block_" + i).onmouseover="";
 			if(mapa[i] == 1)
 			{
-				document.getElementById("block_"+i).style="color: #e78268; cursor: default";
-				document.getElementById("block_"+i).innerHTML="X";
+				document.getElementById("block_" + i).style="color: #e78268; cursor: default";
+				document.getElementById("block_" + i).innerHTML="X";
 			}
 			else
 			{
-				document.getElementById("block_"+i).style="color: #8bb4e4; cursor: default";
-				document.getElementById("block_"+i).innerHTML="O";
+				document.getElementById("block_" + i).style="color: #8bb4e4; cursor: default";
+				document.getElementById("block_" + i).innerHTML="O";
 			}
 		}
 	}
@@ -111,7 +111,7 @@ function checkCelda(celda, winner)
 
 function AIempate(celda)
 {
-	var ai_celda = Math.round(Math.random() * 9);
+	var ai_celda = 4;		// poner cualquier impar si queremos que eliga una esquina si cogemos el centro
 	var espacios = numEspacios();
 	var print = 0;
 	var i = 0;
@@ -124,18 +124,18 @@ function AIempate(celda)
 	{
 		if (espacios > 7)
 		{
-			if (mapa[4] == 0)
-					mapa[4]=2;
+			if (mapa[ai_celda] == 0)
+					mapa[ai_celda] = 2;
 			else
 			{
-				while (mapa[ai_celda] != 0)
+				while (mapa[ai_celda] != 0)						// para que coja las esquinas:      ...|| ai_celda % 2 == 1)
 					ai_celda = Math.round(Math.random() * 9);
-				mapa[ai_celda]=2;
+				mapa[ai_celda] = 2;
 			}
 		}
 		else
 		{
-			while (i < 9 && !print) //Ver si gana
+			while (i < 9 && !print) 				//Ver si gana
 			{
 				print = checkCelda(i, 2);
 				i++;
@@ -175,6 +175,16 @@ function playerVSplayer(celda)
 	}
 }
 
+function printGanador(i) {
+	if (!ai)
+		document.getElementById("p" + i).innerHTML="<h2>¡Ha Ganado el Jugador " + i + " !</h2>";
+	else
+		if (i == 1)
+			document.getElementById("p" + i).innerHTML="<h2>¡Has Ganado!</h2>";
+		else
+			document.getElementById("p" + i).innerHTML="<h2>¡Has Perdido!</h2>";
+}
+
 function pcelda(celda)
 {
 	if (mapa[celda] == 0)
@@ -193,17 +203,11 @@ function pcelda(celda)
 		break;
 		case 1:
 			document.getElementById("p1").style="visibility: visible;";
-			if (!ai)
-				document.getElementById("p1").innerHTML="<h2>¡Ha Ganado el Jugador 1!</h2>";
-			else
-				document.getElementById("p1").innerHTML="<h2>¡Has Ganado!</h2>";
+			printGanador(r);
 		break;
 		case 2:
 			document.getElementById("p2").style="visibility: visible; color: rgb(128, 190, 226);";
-			if (!ai)
-				document.getElementById("p2").innerHTML="<h2>¡Ha Ganado el Jugador 2!</h2>";
-			else
-				document.getElementById("p2").innerHTML="<h2>¡Has Perdido!</h2>";
+			printGanador(r)
 		break;
 		case 3:
 			document.getElementById("empate").style="visibility: visible; color: white;";
